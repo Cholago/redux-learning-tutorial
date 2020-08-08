@@ -1,6 +1,6 @@
 import React from 'react';
 import Store from './Store'
-import { bugAdded, bugRemoved } from './ActionCreactors'
+import * as ActionCreactors from './ActionCreactors'
 const ReduxTutorial = (props) => {
 
     console.log("Store object!", Store);
@@ -10,12 +10,13 @@ const ReduxTutorial = (props) => {
         console.log("Store changed!", Store.getState());
     });
     //Add data to our redux store
-    bugAdded("What if am wrong and i will never be right");
-    bugAdded("Yello wilson Chola is cripmled hahahah");
+    ActionCreactors.bugAdded("What if am wrong and i will never be right");
+    ActionCreactors.bugAdded("Yello wilson Chola is cripmled hahahah");
     //console.log(Store.getState());
     //Removing data from our store
     //unSubscribe(); //unsubscribe from being notifyied
-    bugRemoved(1)  //remove bug
+    ActionCreactors.bugResolved(1);
+    ActionCreactors.bugRemoved(1);  //remove bug
     //console.log(Store.getState());
     unSubscribe();
 
