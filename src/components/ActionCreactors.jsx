@@ -28,6 +28,16 @@ export const bugResolved = id => (
 
 );
 
+export const bugToggled = id => (
+    {
+        type: actions.BUG_TOGGLED,
+        payload: {
+            id: id
+        }
+    }
+
+);
+
 /*
 
 export function bugAdded(description) {

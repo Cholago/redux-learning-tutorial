@@ -1,10 +1,11 @@
 import React from 'react';
 import ReduxTutorial from './components/ReduxTutorial'
+import ReduxReact from './components/ReduxReact'
 
 function App() {
   return (
     <React.Fragment>
-      <ReduxTutorial />
+      <ReduxReact />
     </React.Fragment>
   );
 }

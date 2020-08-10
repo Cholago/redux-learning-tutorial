@@ -1,7 +1,9 @@
+import { combineReducers } from 'redux'
 import * as actions from './ActionTypes'  //importing our action types
 
+//First reducer todos list
 let lastId = 0;
-export default function Reducer(state = [], action) {
+const todos = (state = [], action) => {
     switch (action.type) {
         case actions.BUG_ADDED:
             return [
@@ -22,8 +24,30 @@ export default function Reducer(state = [], action) {
                 bug => bug.id !== action.payload.id ? bug : { ...bug, resolved: true }
             );
 
+        case actions.BUG_TOGGLED:
+            return state.map(
+                bug => bug.id !== action.payload.id ? bug : { ...bug, resolved: !bug.resolved }
+
+            );
+
         default:
             return state;
     }
 
 }
+
+//Second reducer user informtion
+const userInformation = (state = false, action) => {
+    switch (action.type) {
+        case 'SET_VISIBILITY_FILTER':
+            return action.filter
+        default:
+            return state
+    }
+}
+
+export default combineReducers({
+    todos,
+    userInformation
+})
+
