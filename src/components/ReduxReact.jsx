@@ -12,11 +12,20 @@ const ReactRedux = ({ todos }) => {
     console.log(todos);
     return (
         <div className="container">
-            <h1 className="text-center" >Redux tutorial</h1>
-            <AddTodo />
-            <ul>
-                {todos.map(todo => <Todo key={todo.id} todoData={todo} />)}
-            </ul>
+            <div className="row">
+                <div className="col-md-6 ml-auto mr-auto">
+                    <ul className="list-group">
+                        <li className="list-group-item">
+                            <h2 className="text-center" >TODO APP</h2>
+                        </li>
+                        <li className="list-group-item"><AddTodo /></li>
+                        {todos.map(todo => <Todo key={todo.id} todoData={todo} />)}
+                        {todos.length == 0 && <li className="list-group-item">
+                            <p className="text-center">Todo list empty</p>
+                        </li>}
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 }
