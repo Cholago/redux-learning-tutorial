@@ -9,15 +9,12 @@ const ReduxTutorial = (props) => {
     const unSubscribe = Store.subscribe(() => {
         console.log("Store changed!", Store.getState());
     });
-    //Add data to our redux store
-    ActionCreactors.bugAdded("What if am wrong and i will never be right");
-    ActionCreactors.bugAdded("Yello wilson Chola is cripmled hahahah");
-    //console.log(Store.getState());
-    //Removing data from our store
-    //unSubscribe(); //unsubscribe from being notifyied
-    ActionCreactors.bugResolved(1);
-    ActionCreactors.bugRemoved(1);  //remove bug
-    //console.log(Store.getState());
+
+    Store.dispatch(ActionCreactors.bugAdded('Hello wuilson chola'));
+    Store.dispatch(ActionCreactors.bugAdded('What if i dont exist'));
+    Store.dispatch(ActionCreactors.bugAdded('Or what if you dont exist'));
+    Store.dispatch(ActionCreactors.bugResolved(1));
+    Store.dispatch(ActionCreactors.bugRemoved(2));
     unSubscribe();
 
     return (

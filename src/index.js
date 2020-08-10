@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//Create redux store
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import Reducer from './components/Reducer'
+const store = createStore(Reducer);
+
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
